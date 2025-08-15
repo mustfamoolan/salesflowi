@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>إنشاء أيقونات PWA تلقائياً</title>
+</head>
+<body>
+    <script>
+        // إنشاء أيقونات تلقائياً وحفظها كـ base64
+        const iconSizes = [72, 96, 128, 144, 152, 192, 384, 512];
+
+        function createIcon(size) {
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+            canvas.width = size;
+            canvas.height = size;
+
+            // تدرج خلفية
+            const gradient = ctx.createLinearGradient(0, 0, size, size);
+            gradient.addColorStop(0, '#3B82F6');
+            gradient.addColorStop(0.5, '#8B5CF6');
+            gradient.addColorStop(1, '#06B6D4');
+
+            // رسم الخلفية
+            ctx.fillStyle = gradient;
+            ctx.beginPath();
+            ctx.roundRect(0, 0, size, size, size * 0.15);
+            ctx.fill();
+
+            // رسم رمز الدولار
+            ctx.fillStyle = 'white';
+            ctx.font = `bold ${size * 0.4}px Arial`;
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText('$', size * 0.5, size * 0.35);
+
+            // رسم خط التدفق
+            ctx.strokeStyle = 'white';
+            ctx.lineWidth = size * 0.02;
+            ctx.lineCap = 'round';
+            ctx.beginPath();
+            ctx.moveTo(size * 0.2, size * 0.55);
+            ctx.lineTo(size * 0.8, size * 0.55);
+            ctx.stroke();
+
+            // رسم نقاط البيانات
+            const dotSize = size * 0.03;
+            for (let i = 0; i < 3; i++) {
+                ctx.fillStyle = `rgba(255, 255, 255, ${0.8 - i * 0.1})`;
+                ctx.beginPath();
+                ctx.rect(size * 0.25, size * 0.65 + i * size * 0.05, size * 0.2, dotSize);
+                ctx.fill();
+
+                ctx.beginPath();
+                ctx.rect(size * 0.55, size * 0.65 + i * size * 0.05, size * 0.2, dotSize);
+                ctx.fill();
+            }
+
+            return canvas.toDataURL('image/png');
+        }
+
+        // إنشاء جميع الأيقونات
+        const icons = {};
+        iconSizes.forEach(size => {
+            icons[`icon-${size}x${size}.png`] = createIcon(size);
+        });
+
+        // طباعة البيانات
+        console.log('PWA Icons Generated:');
+        console.log(JSON.stringify(icons, null, 2));
+
+        // إنشاء روابط تحميل
+        Object.keys(icons).forEach(filename => {
+            const link = document.createElement('a');
+            link.download = filename;
+            link.href = icons[filename];
+            link.textContent = `تحميل ${filename}`;
+            link.style.display = 'block';
+            link.style.margin = '10px';
+            link.style.padding = '10px';
+            link.style.background = '#3B82F6';
+            link.style.color = 'white';
+            link.style.textDecoration = 'none';
+            link.style.borderRadius = '5px';
+            document.body.appendChild(link);
+        });
+    </script>
+</body>
+</html>

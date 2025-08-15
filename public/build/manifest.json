@@ -1,0 +1,449 @@
+{
+  "_AdminLayout-yEF-XtMJ.js": {
+    "file": "assets/AdminLayout-yEF-XtMJ.js",
+    "name": "AdminLayout",
+    "imports": [
+      "resources/js/app.jsx"
+    ]
+  },
+  "_PublicLayout-D19aAl9u.js": {
+    "file": "assets/PublicLayout-D19aAl9u.js",
+    "name": "PublicLayout",
+    "imports": [
+      "resources/js/app.jsx"
+    ]
+  },
+  "resources/css/app.css": {
+    "file": "assets/app-jfqhj3bm.css",
+    "src": "resources/css/app.css",
+    "isEntry": true,
+    "names": [
+      "app.css"
+    ]
+  },
+  "resources/js/Pages/Admin/AdminPanel.jsx": {
+    "file": "assets/AdminPanel-txSAtunb.js",
+    "name": "AdminPanel",
+    "src": "resources/js/Pages/Admin/AdminPanel.jsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "_AdminLayout-yEF-XtMJ.js"
+    ],
+    "css": [
+      "assets/app-jfqhj3bm.css"
+    ]
+  },
+  "resources/js/Pages/Admin/Analytics.jsx": {
+    "file": "assets/Analytics-01k_Cutr.js",
+    "name": "Analytics",
+    "src": "resources/js/Pages/Admin/Analytics.jsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "_AdminLayout-yEF-XtMJ.js"
+    ],
+    "css": [
+      "assets/app-jfqhj3bm.css"
+    ]
+  },
+  "resources/js/Pages/Admin/Customers.jsx": {
+    "file": "assets/Customers-BKDL18Mp.js",
+    "name": "Customers",
+    "src": "resources/js/Pages/Admin/Customers.jsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "_AdminLayout-yEF-XtMJ.js"
+    ],
+    "css": [
+      "assets/app-jfqhj3bm.css"
+    ]
+  },
+  "resources/js/Pages/Admin/CustomersManagement.jsx": {
+    "file": "assets/CustomersManagement-GoIS5uDZ.js",
+    "name": "CustomersManagement",
+    "src": "resources/js/Pages/Admin/CustomersManagement.jsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "_AdminLayout-yEF-XtMJ.js"
+    ],
+    "css": [
+      "assets/app-jfqhj3bm.css"
+    ]
+  },
+  "resources/js/Pages/Admin/Dashboard.jsx": {
+    "file": "assets/Dashboard-Dn_Xmf4r.js",
+    "name": "Dashboard",
+    "src": "resources/js/Pages/Admin/Dashboard.jsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "_AdminLayout-yEF-XtMJ.js"
+    ],
+    "css": [
+      "assets/app-jfqhj3bm.css"
+    ]
+  },
+  "resources/js/Pages/Admin/EmployeesManagement.jsx": {
+    "file": "assets/EmployeesManagement-BLoX6a9s.js",
+    "name": "EmployeesManagement",
+    "src": "resources/js/Pages/Admin/EmployeesManagement.jsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "_AdminLayout-yEF-XtMJ.js"
+    ],
+    "css": [
+      "assets/app-jfqhj3bm.css"
+    ]
+  },
+  "resources/js/Pages/Admin/FinancialReports.jsx": {
+    "file": "assets/FinancialReports-8aDT7S_2.js",
+    "name": "FinancialReports",
+    "src": "resources/js/Pages/Admin/FinancialReports.jsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "_AdminLayout-yEF-XtMJ.js"
+    ],
+    "css": [
+      "assets/app-jfqhj3bm.css"
+    ]
+  },
+  "resources/js/Pages/Admin/Header.jsx": {
+    "file": "assets/Header-Ba4JtfVB.js",
+    "name": "Header",
+    "src": "resources/js/Pages/Admin/Header.jsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx"
+    ],
+    "css": [
+      "assets/app-jfqhj3bm.css"
+    ]
+  },
+  "resources/js/Pages/Admin/MainScreen.jsx": {
+    "file": "assets/MainScreen-BR0_d0Dp.js",
+    "name": "MainScreen",
+    "src": "resources/js/Pages/Admin/MainScreen.jsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx"
+    ],
+    "css": [
+      "assets/app-jfqhj3bm.css"
+    ]
+  },
+  "resources/js/Pages/Admin/Notifications.jsx": {
+    "file": "assets/Notifications-CoE1LlNw.js",
+    "name": "Notifications",
+    "src": "resources/js/Pages/Admin/Notifications.jsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "_AdminLayout-yEF-XtMJ.js"
+    ],
+    "css": [
+      "assets/app-jfqhj3bm.css"
+    ]
+  },
+  "resources/js/Pages/Admin/PlansManagement.jsx": {
+    "file": "assets/PlansManagement-B60RdZ9X.js",
+    "name": "PlansManagement",
+    "src": "resources/js/Pages/Admin/PlansManagement.jsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "_AdminLayout-yEF-XtMJ.js"
+    ],
+    "css": [
+      "assets/app-jfqhj3bm.css"
+    ]
+  },
+  "resources/js/Pages/Admin/Settings.jsx": {
+    "file": "assets/Settings-D4m5XsYO.js",
+    "name": "Settings",
+    "src": "resources/js/Pages/Admin/Settings.jsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "_AdminLayout-yEF-XtMJ.js"
+    ],
+    "css": [
+      "assets/app-jfqhj3bm.css"
+    ]
+  },
+  "resources/js/Pages/Admin/Sidebar.jsx": {
+    "file": "assets/Sidebar-B8qOrRr7.js",
+    "name": "Sidebar",
+    "src": "resources/js/Pages/Admin/Sidebar.jsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx"
+    ],
+    "css": [
+      "assets/app-jfqhj3bm.css"
+    ]
+  },
+  "resources/js/Pages/Admin/SubscriptionsManagement.jsx": {
+    "file": "assets/SubscriptionsManagement-CLDh7Vrk.js",
+    "name": "SubscriptionsManagement",
+    "src": "resources/js/Pages/Admin/SubscriptionsManagement.jsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "_AdminLayout-yEF-XtMJ.js"
+    ],
+    "css": [
+      "assets/app-jfqhj3bm.css"
+    ]
+  },
+  "resources/js/Pages/Admin/SupportTickets.jsx": {
+    "file": "assets/SupportTickets-BgtZHuW_.js",
+    "name": "SupportTickets",
+    "src": "resources/js/Pages/Admin/SupportTickets.jsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "_AdminLayout-yEF-XtMJ.js"
+    ],
+    "css": [
+      "assets/app-jfqhj3bm.css"
+    ]
+  },
+  "resources/js/Pages/Admin/SystemLogs.jsx": {
+    "file": "assets/SystemLogs-DevaQTKS.js",
+    "name": "SystemLogs",
+    "src": "resources/js/Pages/Admin/SystemLogs.jsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "_AdminLayout-yEF-XtMJ.js"
+    ],
+    "css": [
+      "assets/app-jfqhj3bm.css"
+    ]
+  },
+  "resources/js/Pages/Client/BackButton.jsx": {
+    "file": "assets/BackButton-C7rP9mAK.js",
+    "name": "BackButton",
+    "src": "resources/js/Pages/Client/BackButton.jsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx"
+    ],
+    "css": [
+      "assets/app-jfqhj3bm.css"
+    ]
+  },
+  "resources/js/Pages/Client/CustomerPage.jsx": {
+    "file": "assets/CustomerPage-Cd3pyvUX.js",
+    "name": "CustomerPage",
+    "src": "resources/js/Pages/Client/CustomerPage.jsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "resources/js/Pages/Client/BackButton.jsx"
+    ],
+    "css": [
+      "assets/app-jfqhj3bm.css"
+    ]
+  },
+  "resources/js/Pages/Client/Dashboard.jsx": {
+    "file": "assets/Dashboard-Dfr-NCe7.js",
+    "name": "Dashboard",
+    "src": "resources/js/Pages/Client/Dashboard.jsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx"
+    ],
+    "css": [
+      "assets/app-jfqhj3bm.css"
+    ]
+  },
+  "resources/js/Pages/Client/DebtsPage.jsx": {
+    "file": "assets/DebtsPage-7_g9393_.js",
+    "name": "DebtsPage",
+    "src": "resources/js/Pages/Client/DebtsPage.jsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "resources/js/Pages/Client/BackButton.jsx"
+    ],
+    "css": [
+      "assets/app-jfqhj3bm.css"
+    ]
+  },
+  "resources/js/Pages/Client/ExpensesPage.jsx": {
+    "file": "assets/ExpensesPage-Di0boMzf.js",
+    "name": "ExpensesPage",
+    "src": "resources/js/Pages/Client/ExpensesPage.jsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "resources/js/Pages/Client/BackButton.jsx"
+    ],
+    "css": [
+      "assets/app-jfqhj3bm.css"
+    ]
+  },
+  "resources/js/Pages/Client/InstallmentsPage.jsx": {
+    "file": "assets/InstallmentsPage-z_qk4CYN.js",
+    "name": "InstallmentsPage",
+    "src": "resources/js/Pages/Client/InstallmentsPage.jsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "resources/js/Pages/Client/BackButton.jsx"
+    ],
+    "css": [
+      "assets/app-jfqhj3bm.css"
+    ]
+  },
+  "resources/js/Pages/Client/InvoicesPage.jsx": {
+    "file": "assets/InvoicesPage-XlkHQG05.js",
+    "name": "InvoicesPage",
+    "src": "resources/js/Pages/Client/InvoicesPage.jsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "resources/js/Pages/Client/BackButton.jsx"
+    ],
+    "css": [
+      "assets/app-jfqhj3bm.css"
+    ]
+  },
+  "resources/js/Pages/Client/POSPage.jsx": {
+    "file": "assets/POSPage-DfTtEzTH.js",
+    "name": "POSPage",
+    "src": "resources/js/Pages/Client/POSPage.jsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "resources/js/Pages/Client/BackButton.jsx"
+    ],
+    "css": [
+      "assets/app-jfqhj3bm.css"
+    ]
+  },
+  "resources/js/Pages/Client/ProductsPage.jsx": {
+    "file": "assets/ProductsPage-C0queCsf.js",
+    "name": "ProductsPage",
+    "src": "resources/js/Pages/Client/ProductsPage.jsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "resources/js/Pages/Client/BackButton.jsx"
+    ],
+    "css": [
+      "assets/app-jfqhj3bm.css"
+    ]
+  },
+  "resources/js/Pages/Client/ReportsPage.jsx": {
+    "file": "assets/ReportsPage-dilccS5i.js",
+    "name": "ReportsPage",
+    "src": "resources/js/Pages/Client/ReportsPage.jsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "resources/js/Pages/Client/BackButton.jsx"
+    ],
+    "css": [
+      "assets/app-jfqhj3bm.css"
+    ]
+  },
+  "resources/js/Pages/Client/SettingsPage.jsx": {
+    "file": "assets/SettingsPage-COnqIQNd.js",
+    "name": "SettingsPage",
+    "src": "resources/js/Pages/Client/SettingsPage.jsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "resources/js/Pages/Client/BackButton.jsx"
+    ],
+    "css": [
+      "assets/app-jfqhj3bm.css"
+    ]
+  },
+  "resources/js/Pages/Client/SimpleDashboard.jsx": {
+    "file": "assets/SimpleDashboard-D0qbWH4K.js",
+    "name": "SimpleDashboard",
+    "src": "resources/js/Pages/Client/SimpleDashboard.jsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx"
+    ],
+    "css": [
+      "assets/app-jfqhj3bm.css"
+    ]
+  },
+  "resources/js/Pages/Public/LandingPage.jsx": {
+    "file": "assets/LandingPage-Cb4MKPM8.js",
+    "name": "LandingPage",
+    "src": "resources/js/Pages/Public/LandingPage.jsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "_PublicLayout-D19aAl9u.js"
+    ],
+    "css": [
+      "assets/app-jfqhj3bm.css"
+    ]
+  },
+  "resources/js/Pages/Public/LandingPageSimple.jsx": {
+    "file": "assets/LandingPageSimple-CxHkeuli.js",
+    "name": "LandingPageSimple",
+    "src": "resources/js/Pages/Public/LandingPageSimple.jsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "_PublicLayout-D19aAl9u.js"
+    ],
+    "css": [
+      "assets/app-jfqhj3bm.css"
+    ]
+  },
+  "resources/js/app.jsx": {
+    "file": "assets/app-CuBlbhlW.js",
+    "name": "app",
+    "src": "resources/js/app.jsx",
+    "isEntry": true,
+    "dynamicImports": [
+      "resources/js/Pages/Admin/AdminPanel.jsx",
+      "resources/js/Pages/Admin/Analytics.jsx",
+      "resources/js/Pages/Admin/Customers.jsx",
+      "resources/js/Pages/Admin/CustomersManagement.jsx",
+      "resources/js/Pages/Admin/Dashboard.jsx",
+      "resources/js/Pages/Admin/EmployeesManagement.jsx",
+      "resources/js/Pages/Admin/FinancialReports.jsx",
+      "resources/js/Pages/Admin/Header.jsx",
+      "resources/js/Pages/Admin/MainScreen.jsx",
+      "resources/js/Pages/Admin/Notifications.jsx",
+      "resources/js/Pages/Admin/PlansManagement.jsx",
+      "resources/js/Pages/Admin/Settings.jsx",
+      "resources/js/Pages/Admin/Sidebar.jsx",
+      "resources/js/Pages/Admin/SubscriptionsManagement.jsx",
+      "resources/js/Pages/Admin/SupportTickets.jsx",
+      "resources/js/Pages/Admin/SystemLogs.jsx",
+      "resources/js/Pages/Client/BackButton.jsx",
+      "resources/js/Pages/Client/CustomerPage.jsx",
+      "resources/js/Pages/Client/Dashboard.jsx",
+      "resources/js/Pages/Client/DebtsPage.jsx",
+      "resources/js/Pages/Client/ExpensesPage.jsx",
+      "resources/js/Pages/Client/InstallmentsPage.jsx",
+      "resources/js/Pages/Client/InvoicesPage.jsx",
+      "resources/js/Pages/Client/POSPage.jsx",
+      "resources/js/Pages/Client/ProductsPage.jsx",
+      "resources/js/Pages/Client/ReportsPage.jsx",
+      "resources/js/Pages/Client/SettingsPage.jsx",
+      "resources/js/Pages/Client/SimpleDashboard.jsx",
+      "resources/js/Pages/Public/LandingPage.jsx",
+      "resources/js/Pages/Public/LandingPageSimple.jsx"
+    ],
+    "css": [
+      "assets/app-jfqhj3bm.css"
+    ]
+  }
+}

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إنشاء أيقونات PWA</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; text-align: center; }
+        .generator { margin: 20px 0; }
+        .download-btn {
+            background: linear-gradient(45deg, #3B82F6, #8B5CF6);
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        .download-btn:hover { opacity: 0.8; }
+        canvas { display: none; }
+        .preview { margin: 10px; display: inline-block; }
+        .size-label { font-size: 12px; color: #666; }
+    </style>
+</head>
+<body>
+    <h1>مولد أيقونات SalesFlow PWA</h1>
+    <p>انقر على الأزرار لتحميل الأيقونات بأحجام مختلفة</p>
+
+    <div class="generator">
+        <h3>أيقونات بجودة عالية</h3>
+        <div id="iconContainer"></div>
+    </div>
+
+    <script>
+        const iconSizes = [72, 96, 128, 144, 152, 192, 384, 512];
+
+        function createIcon(size) {
+            const canvas = document.createElement('canvas');
+            canvas.width = size;
+            canvas.height = size;
+            const ctx = canvas.getContext('2d');
+
+            // إنشاء تدرج لوني
+            const gradient = ctx.createLinearGradient(0, 0, size, size);
+            gradient.addColorStop(0, '#3B82F6');
+            gradient.addColorStop(0.5, '#8B5CF6');
+            gradient.addColorStop(1, '#06B6D4');
+
+            // رسم الخلفية
+            ctx.fillStyle = gradient;
+            ctx.beginPath();
+            ctx.roundRect(0, 0, size, size, size * 0.15);
+            ctx.fill();
+
+            // رسم رمز الدولار
+            ctx.fillStyle = 'white';
+            ctx.font = `bold ${size * 0.4}px Arial`;
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText('$', size / 2, size * 0.55);
+
+            // إضافة نقاط زخرفية
+            const dotRadius = size * 0.02;
+            ctx.globalAlpha = 0.8;
+            ctx.beginPath();
+            ctx.arc(size * 0.25, size * 0.75, dotRadius, 0, 2 * Math.PI);
+            ctx.fill();
+
+            ctx.globalAlpha = 0.6;
+            ctx.beginPath();
+            ctx.arc(size * 0.5, size * 0.75, dotRadius, 0, 2 * Math.PI);
+            ctx.fill();
+
+            ctx.globalAlpha = 0.4;
+            ctx.beginPath();
+            ctx.arc(size * 0.75, size * 0.75, dotRadius, 0, 2 * Math.PI);
+            ctx.fill();
+
+            ctx.globalAlpha = 1;
+
+            return canvas;
+        }
+
+        function downloadIcon(size) {
+            const canvas = createIcon(size);
+            const link = document.createElement('a');
+            link.download = `icon-${size}x${size}.png`;
+            link.href = canvas.toDataURL();
+            link.click();
+        }
+
+        function createPreview(size) {
+            const canvas = createIcon(size);
+            const container = document.createElement('div');
+            container.className = 'preview';
+
+            const previewCanvas = document.createElement('canvas');
+            previewCanvas.width = 48;
+            previewCanvas.height = 48;
+            previewCanvas.style.border = '1px solid #ddd';
+            previewCanvas.style.borderRadius = '8px';
+
+            const previewCtx = previewCanvas.getContext('2d');
+            previewCtx.drawImage(canvas, 0, 0, 48, 48);
+
+            const label = document.createElement('div');
+            label.className = 'size-label';
+            label.textContent = `${size}x${size}`;
+
+            const button = document.createElement('button');
+            button.className = 'download-btn';
+            button.textContent = 'تحميل';
+            button.onclick = () => downloadIcon(size);
+
+            container.appendChild(previewCanvas);
+            container.appendChild(label);
+            container.appendChild(button);
+
+            return container;
+        }
+
+        // إنشاء معاينات للأيقونات
+        const container = document.getElementById('iconContainer');
+        iconSizes.forEach(size => {
+            container.appendChild(createPreview(size));
+        });
+
+        // زر تحميل جميع الأيقونات
+        const downloadAllBtn = document.createElement('button');
+        downloadAllBtn.className = 'download-btn';
+        downloadAllBtn.textContent = 'تحميل جميع الأيقونات';
+        downloadAllBtn.style.fontSize = '16px';
+        downloadAllBtn.style.padding = '15px 30px';
+        downloadAllBtn.onclick = () => {
+            iconSizes.forEach((size, index) => {
+                setTimeout(() => downloadIcon(size), index * 500);
+            });
+        };
+
+        container.appendChild(document.createElement('br'));
+        container.appendChild(downloadAllBtn);
+    </script>
+</body>
+</html>

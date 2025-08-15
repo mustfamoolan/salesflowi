@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>غير متصل - SalesFlow</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .offline-animation {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        .retry-button {
+            transition: all 0.3s ease;
+        }
+        .retry-button:hover {
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-blue-50 to-purple-50 min-h-screen flex items-center justify-center p-4">
+    <div class="max-w-md w-full bg-white rounded-2xl shadow-xl p-8 text-center">
+        <!-- أيقونة عدم الاتصال -->
+        <div class="offline-animation mb-6">
+            <div class="w-24 h-24 mx-auto bg-gray-100 rounded-full flex items-center justify-center">
+                <svg class="w-12 h-12 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-12.728 12.728m0-12.728l12.728 12.728M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                </svg>
+            </div>
+        </div>
+
+        <!-- رسالة عدم الاتصال -->
+        <h1 class="text-2xl font-bold text-gray-800 mb-4">
+            غير متصل بالإنترنت
+        </h1>
+
+        <p class="text-gray-600 mb-6 leading-relaxed">
+            يبدو أنك غير متصل بالإنترنت حالياً. لا تقلق، يمكنك الاستمرار في استخدام بعض ميزات SalesFlow حتى بدون اتصال.
+        </p>
+
+        <!-- معلومات الميزات المتاحة بدون اتصال -->
+        <div class="bg-blue-50 rounded-lg p-4 mb-6 text-right">
+            <h3 class="font-semibold text-blue-800 mb-2">متاح بدون اتصال:</h3>
+            <ul class="text-sm text-blue-700 space-y-1">
+                <li>• عرض البيانات المحفوظة مسبقاً</li>
+                <li>• إضافة عملاء جدد (سيتم مزامنتها لاحقاً)</li>
+                <li>• تصفح الصفحات المزارة مسبقاً</li>
+                <li>• استخدام حاسبة نقطة البيع</li>
+            </ul>
+        </div>
+
+        <!-- أزرار الإجراءات -->
+        <div class="space-y-3">
+            <button onclick="retryConnection()" class="retry-button w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg shadow-md">
+                إعادة المحاولة
+            </button>
+
+            <button onclick="goOfflineMode()" class="w-full bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium py-3 px-6 rounded-lg">
+                الاستمرار بدون اتصال
+            </button>
+        </div>
+
+        <!-- حالة الاتصال -->
+        <div id="connection-status" class="mt-6 text-sm text-gray-500">
+            يتم فحص الاتصال...
+        </div>
+    </div>
+
+    <script>
+        // فحص حالة الاتصال
+        function checkConnection() {
+            const statusElement = document.getElementById('connection-status');
+
+            if (navigator.onLine) {
+                statusElement.textContent = '✅ متصل بالإنترنت';
+                statusElement.className = 'mt-6 text-sm text-green-600';
+
+                // إخفاء رسالة عدم الاتصال بعد ثانيتين
+                setTimeout(() => {
+                    window.location.reload();
+                }, 2000);
+            } else {
+                statusElement.textContent = '🔴 غير متصل بالإنترنت';
+                statusElement.className = 'mt-6 text-sm text-red-600';
+            }
+        }
+
+        // إعادة المحاولة
+        function retryConnection() {
+            const button = event.target;
+            button.textContent = 'جاري الفحص...';
+            button.disabled = true;
+
+            setTimeout(() => {
+                if (navigator.onLine) {
+                    window.location.href = '/';
+                } else {
+                    button.textContent = 'إعادة المحاولة';
+                    button.disabled = false;
+                    alert('لا يزال الاتصال غير متوفر. تأكد من اتصالك بالإنترنت.');
+                }
+            }, 1500);
+        }
+
+        // الانتقال للوضع بدون اتصال
+        function goOfflineMode() {
+            // محاولة العودة للصفحة الرئيسية المخزنة مؤقتاً
+            window.location.href = '/';
+        }
+
+        // مراقبة تغيير حالة الاتصال
+        window.addEventListener('online', function() {
+            console.log('✅ تم استعادة الاتصال');
+            checkConnection();
+        });
+
+        window.addEventListener('offline', function() {
+            console.log('🔴 انقطع الاتصال');
+            checkConnection();
+        });
+
+        // فحص الاتصال عند تحميل الصفحة
+        checkConnection();
+
+        // فحص دوري للاتصال
+        setInterval(checkConnection, 3000);
+
+        console.log('📱 SalesFlow - صفحة عدم الاتصال جاهزة');
+    </script>
+</body>
+</html>

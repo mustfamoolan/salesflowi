@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PWA Icon Generator - SalesFlow</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            direction: rtl;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+            font-size: 2rem;
+        }
+        .preview {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .preview img {
+            max-width: 200px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        .sizes {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .size-item {
+            text-align: center;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 15px;
+            border: 2px solid #e9ecef;
+            transition: all 0.3s ease;
+        }
+        .size-item:hover {
+            border-color: #007bff;
+            transform: translateY(-2px);
+        }
+        .size-item canvas {
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 10px;
+        }
+        .size-label {
+            font-weight: bold;
+            color: #495057;
+            margin-bottom: 10px;
+        }
+        .download-btn {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background 0.3s ease;
+        }
+        .download-btn:hover {
+            background: #0056b3;
+        }
+        .download-all {
+            text-align: center;
+            margin-top: 30px;
+        }
+        .download-all button {
+            background: #28a745;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background 0.3s ease;
+        }
+        .download-all button:hover {
+            background: #1e7e34;
+        }
+        .instructions {
+            background: #e3f2fd;
+            padding: 20px;
+            border-radius: 15px;
+            margin-top: 30px;
+        }
+        .instructions h3 {
+            color: #1565c0;
+            margin-top: 0;
+        }
+        .instructions ul {
+            margin: 10px 0;
+            padding-right: 20px;
+        }
+        .instructions li {
+            margin-bottom: 8px;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎨 مولد أيقونات PWA - SalesFlow</h1>
+
+        <div class="preview">
+            <img id="svgPreview" src="/images/icon.svg" alt="SalesFlow Icon">
+            <p>معاينة الأيقونة الأساسية</p>
+        </div>
+
+        <div class="sizes" id="sizesContainer">
+            <!-- سيتم إنشاء الأحجام هنا -->
+        </div>
+
+        <div class="download-all">
+            <button onclick="downloadAllIcons()">📥 تحميل جميع الأيقونات</button>
+        </div>
+
+        <div class="instructions">
+            <h3>📋 تعليمات الاستخدام:</h3>
+            <ul>
+                <li>انقر على "تحميل" لحفظ كل أيقونة بحجمها المطلوب</li>
+                <li>أو استخدم "تحميل جميع الأيقونات" لحفظ كل الأحجام مرة واحدة</li>
+                <li>ضع الأيقونات في مجلد <code>/public/images/</code></li>
+                <li>الأحجام المطلوبة لـ PWA: 72x72, 96x96, 128x128, 144x144, 152x152, 192x192, 384x384, 512x512</li>
+                <li>سيتم تطبيق هذه الأيقونات تلقائياً عند تثبيت التطبيق</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        // أحجام الأيقونات المطلوبة لـ PWA
+        const iconSizes = [
+            { size: 72, name: 'icon-72x72.png', purpose: 'any' },
+            { size: 96, name: 'icon-96x96.png', purpose: 'any' },
+            { size: 128, name: 'icon-128x128.png', purpose: 'any' },
+            { size: 144, name: 'icon-144x144.png', purpose: 'any' },
+            { size: 152, name: 'icon-152x152.png', purpose: 'any' },
+            { size: 192, name: 'icon-192x192.png', purpose: 'any maskable' },
+            { size: 384, name: 'icon-384x384.png', purpose: 'any' },
+            { size: 512, name: 'icon-512x512.png', purpose: 'any maskable' }
+        ];
+
+        // تحميل وتحويل SVG
+        async function loadSVG() {
+            try {
+                const response = await fetch('/images/icon.svg');
+                const svgText = await response.text();
+                return svgText;
+            } catch (error) {
+                console.error('خطأ في تحميل SVG:', error);
+                return null;
+            }
+        }
+
+        // تحويل SVG إلى Canvas
+        function svgToCanvas(svgText, size) {
+            return new Promise((resolve) => {
+                const canvas = document.createElement('canvas');
+                const ctx = canvas.getContext('2d');
+                canvas.width = size;
+                canvas.height = size;
+
+                const img = new Image();
+                const svgBlob = new Blob([svgText], { type: 'image/svg+xml' });
+                const url = URL.createObjectURL(svgBlob);
+
+                img.onload = function() {
+                    ctx.drawImage(img, 0, 0, size, size);
+                    URL.revokeObjectURL(url);
+                    resolve(canvas);
+                };
+
+                img.src = url;
+            });
+        }
+
+        // تحميل ملف
+        function downloadCanvas(canvas, filename) {
+            const link = document.createElement('a');
+            link.download = filename;
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+        }
+
+        // تحميل جميع الأيقونات
+        async function downloadAllIcons() {
+            const svgText = await loadSVG();
+            if (!svgText) return;
+
+            for (const iconSize of iconSizes) {
+                const canvas = await svgToCanvas(svgText, iconSize.size);
+                downloadCanvas(canvas, iconSize.name);
+
+                // تأخير قصير بين التحميلات
+                await new Promise(resolve => setTimeout(resolve, 200));
+            }
+
+            alert('✅ تم تحميل جميع الأيقونات بنجاح!');
+        }
+
+        // إنشاء عناصر الأحجام
+        async function createSizeItems() {
+            const svgText = await loadSVG();
+            if (!svgText) return;
+
+            const container = document.getElementById('sizesContainer');
+
+            for (const iconSize of iconSizes) {
+                const canvas = await svgToCanvas(svgText, iconSize.size);
+
+                // تصغير Canvas للعرض
+                const displaySize = Math.min(iconSize.size, 100);
+                canvas.style.width = displaySize + 'px';
+                canvas.style.height = displaySize + 'px';
+
+                const sizeItem = document.createElement('div');
+                sizeItem.className = 'size-item';
+                sizeItem.innerHTML = `
+                    <div class="size-label">${iconSize.size}x${iconSize.size}</div>
+                    <div style="margin-bottom: 10px;"></div>
+                    <button class="download-btn" onclick="downloadIcon('${iconSize.name}', ${iconSize.size})">
+                        📥 تحميل
+                    </button>
+                `;
+
+                // إدراج Canvas
+                sizeItem.children[1].appendChild(canvas);
+
+                container.appendChild(sizeItem);
+            }
+        }
+
+        // تحميل أيقونة واحدة
+        async function downloadIcon(filename, size) {
+            const svgText = await loadSVG();
+            if (!svgText) return;
+
+            const canvas = await svgToCanvas(svgText, size);
+            downloadCanvas(canvas, filename);
+        }
+
+        // تشغيل عند تحميل الصفحة
+        document.addEventListener('DOMContentLoaded', createSizeItems);
+    </script>
+</body>
+</html>
